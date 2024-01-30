@@ -3,7 +3,7 @@ package net.ugurkartal;
 import java.util.Arrays;
 
 public class Library {
-    public Book[] books;
+    public Book[] books = new Book[0];
 
     @Override
     public String toString() {
@@ -13,7 +13,20 @@ public class Library {
     }
 
     public void addBook (Book... books){
-        this.books = books;
+        int length = this.books == null ? 0: this.books.length;
+        Book[] newBooks = new Book[books.length + this.books.length];
+        int index = 0;
+        for (Book searchBook : this.books){
+            newBooks[index] = searchBook;
+            index++;
+        }
+
+        for (Book searchBook : books){
+            newBooks[index] = searchBook;
+            index++;
+        }
+
+        this.books = newBooks;
         String booktitles = "";
         for (Book book : books){
             if (booktitles == ""){

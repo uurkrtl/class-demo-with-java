@@ -32,8 +32,13 @@ public class Main {
         book4.setIsbn("5645615641564654");
 
         Library library2 = new Library();
+        library2.books = new Book[]{book1};
+
+        System.out.println("Before add book Library2: " + library2 + "\n");
+
         library2.addBook(book3, book4);
-        System.out.println("Library2: " +  library2 + "\n");
+        System.out.println("After add book Library2: " +  library2 + "\n");
+
         library2.deleteBook(book3);
         System.out.println("After delete Library2: " + library2 + "\n");
     }
