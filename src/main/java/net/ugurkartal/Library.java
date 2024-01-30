@@ -13,20 +13,24 @@ public class Library {
     }
 
     public void addBook (Book... books){
-        int length = this.books == null ? 0: this.books.length;
         Book[] newBooks = new Book[books.length + this.books.length];
         int index = 0;
+
+        //Add existing books to new array (newBooks)
         for (Book searchBook : this.books){
             newBooks[index] = searchBook;
             index++;
         }
 
+        //Add new books to new array (newBooks)
         for (Book searchBook : books){
             newBooks[index] = searchBook;
             index++;
         }
 
         this.books = newBooks;
+
+        // Get book titles for printing
         String booktitles = "";
         for (Book book : books){
             if (booktitles == ""){
@@ -34,7 +38,6 @@ public class Library {
             }else {
                 booktitles = booktitles + ", " + book.getTitle();
             }
-
         }
         System.out.println("added " + booktitles);
     }
@@ -42,8 +45,10 @@ public class Library {
     public void deleteBook (Book book){
         int index = 0;
         Book[] newBooks = new Book[this.books.length-1];
+
+        //Add existing books to new array (newBooks)
         for (Book searchBook : this.books){
-            if (searchBook != book){
+            if (searchBook != book){ //Don't add deleted book
                 newBooks[index] = searchBook;
                 index++;
             }
