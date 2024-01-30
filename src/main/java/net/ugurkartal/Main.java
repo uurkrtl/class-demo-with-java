@@ -17,6 +17,24 @@ public class Main {
         Library library = new Library();
         library.books = new Book[]{book1, book2};
 
-        System.out.println(library);
+        System.out.println("Library1: " + library + "\n");
+
+
+        //For Bonus Task:
+        Book book3 = new Book();
+        book3.setTitle("Ikigai");
+        book3.setAuthor("Hector García");
+        book3.setIsbn("54894156489498");
+
+        Book book4 = new Book();
+        book4.setTitle("Read People Like a Book");
+        book4.setAuthor("Patrick King");
+        book4.setIsbn("5645615641564654");
+
+        Library library2 = new Library();
+        library2.addBook(book3, book4);
+        System.out.println("Library2: " +  library2 + "\n");
+        library2.deleteBook(book3);
+        System.out.println("After delete Library2: " + library2 + "\n");
     }
 }
